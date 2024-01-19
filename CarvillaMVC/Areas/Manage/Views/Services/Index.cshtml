@@ -1,0 +1,82 @@
+﻿@using CarvillaMVC.Models
+
+@model List<Service>
+
+<!-- Begin Page Content -->
+<div class="container-fluid">
+   <a class="btn btn-primary" style="margin-left:90%" asp-controller="Services" asp-action="Create">
+       Create
+   </a>
+    <!-- Page Heading -->
+    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
+    <p class="mb-4">
+        DataTables is a third party plugin that is used to generate the demo table below.
+        For more information about DataTables, please visit the <a target="_blank"
+                                                                   href="https://datatables.net">official DataTables documentation</a>.
+    </p>
+
+    <!-- DataTales Example -->
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Icon</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.Title</td>
+                                <td>@item.Description</td>
+                                <td>@Html.Raw(item.Icon)</td>
+                                <td >
+                                    <a  class="btn btn-success" asp-controller="Services" asp-action="Update" asp-route-id=@item.Id>Update</a>
+                                    <a  class="btn btn-danger" asp-controller="Services" asp-action="Delete" asp-route-id=@item.Id>Delete</a>
+
+                                </td>
+                                
+                            </tr>
+                        }
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- /.container-fluid -->
+            </div>
+<!-- End of Main Content -->
+
+<script src="~/assets/js/jquery.js"></script>
+
+<!--modernizr.min.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+
+<!--bootstrap.min.js-->
+<script src="~/assets/js/bootstrap.min.js"></script>
+
+<!-- bootsnav js -->
+<script src="~/assets/js/bootsnav.js"></script>
+
+<!--owl.carousel.js-->
+<script src="~/assets/js/owl.carousel.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+<!--Custom JS-->
+<script src="~/assets/js/custom.js"></script>
